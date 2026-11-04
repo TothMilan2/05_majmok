@@ -1,6 +1,11 @@
 module.exports = (objRep) => {
     return (req, res, next) => {
         console.table(objRep.monkeys);
-        return res.json(objRep.monkeys);
+
+        if(!objRep.monkeys) {
+            return res.status(404).json({ error: 'No monkeys found!' });
+        }
+         res.locals.objRep = objRep.monkeys;
+         return next();
     }
 }
