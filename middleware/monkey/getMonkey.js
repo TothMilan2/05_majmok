@@ -1,6 +1,7 @@
 module.exports = (objRep) => {
+    const { monkeyModel } = objRep;
     return (req, res, next) => {
-    const { monkeys } = objRep;
+    
     const monkeyIdAsNumber = parseInt(req.params.id, 10);
     let foundId = -1;
     for (let i = 0; i < monkeys.length; i++) {

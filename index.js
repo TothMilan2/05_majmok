@@ -6,7 +6,6 @@ const port = process.env.PORT || 3000;
 const addRoutes = require('./route'); // automatikusan index.js-ből keresi
 
 app.use(express.json());    
-addRoutes(app);
 
 
 
@@ -19,9 +18,9 @@ initDatabase((err, result) => {
     if (err) {
         return console.error(err);
     }
-    const { db, bookModel } = result;
+    const { db, monkeyModel } = result;
 
-    addRoutes(app, db, bookModel);
+    addRoutes(app, db, monkeyModel);
 
     app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {

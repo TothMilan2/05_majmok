@@ -1,3 +1,4 @@
+const uuid = require('uuid');
 const getBananasMW = require('../middleware/banana/getBananas');
 const getBananaMW = require('../middleware/banana/getBanana');
 const createBananaMW = require('../middleware/banana/createBanana');
@@ -15,66 +16,67 @@ const checkMonkeyId = require('../middleware/banana/checkMonkeyId');
 
 
 
-function addRoutes(app) {
+function addRoutes(app,db, monkeyModel, bananaModel) {
 
 
    
 
             const monkeys = [
                 {
-                    id: 1,
+                    id: uuid.v4(),
                     name: 'Joe',
                     sex: 'male',
                     species: 'gibbon'
 
                 },
                 {
-                    id: 2,
+                    id: uuid.v4(),
                     name: 'Josephine',
                     sex: 'female',
                     species: 'gorilla'
                 },
                 {
-                    id: 3,
+                    id: uuid.v4(),
                     name: 'Lajos',
                     sex: 'male',
                     species: 'orangutan'
                 }
             ]
-            const bananas = [
-                {
-                    id: 1,
-                    color: "yellow",
-                    sweet: false,
-                    monkeyId: null
-                },
-                {
-                    id: 2,
-                    color: "yellow",
-                    sweet: true,
-                    monkeyId: null
-                },
-                {
-                    id: 3,
-                    color: "green",
-                    sweet: true,
-                    monkeyId: null
-                }, {
-                    id: 4,
-                    color: "green",
-                    sweet: false,
-                    monkeyId: null
-                }
-            ]
+            // const bananas = [
+            //     {
+            //         id: uuid.v4(),
+            //         color: "yellow",
+            //         sweet: false,
+            //         monkeyId: null
+            //     },
+            //     {
+            //         id: uuid.v4(),
+            //         color: "yellow",
+            //         sweet: true,
+            //         monkeyId: null
+            //     },
+            //     {
+            //         id: uuid.v4(),
+            //         color: "green",
+            //         sweet: true,
+            //         monkeyId: null
+            //     }, {
+            //         id: uuid.v4(),
+            //         color: "green",
+            //         sweet: false,
+            //         monkeyId: null
+            //     }
+            // ]
      
-        let globalMonkeyId = monkeys.length + 1
-        let globalBananaId = bananas.length + 1
+        // let globalMonkeyId = monkeys.length + 1
+        // let globalBananaId = bananas.length + 1
 
 const objRep={
     monkeys,
-    bananas,
-    globalMonkeyId,
-    globalBananaId
+    monkeyModel,
+    bananaModel,
+    db,
+    uuid,
 }
     
 
