@@ -2,6 +2,7 @@ module.exports = (objRep) => {
     const { bananas } = objRep;
     return (req, res, next) => {
         console.table(bananas);
-        return res.json(bananas);
+        res.locals.bananas = res.status(200).json(bananas);
+        return next();
     }
 }

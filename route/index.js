@@ -9,8 +9,8 @@ const getMonkeyMW = require('../middleware/monkey/getMonkey');
 const createMonkeyMW = require('../middleware/monkey/createMonkey');
 const deleteMonkeyMW = require('../middleware/monkey/deleteMonkey');
 const updateMonkeyMW = require('../middleware/monkey/updateMonkey');
-const getMonkeyIndex = require('../middleware/monkey/getMonkeyIndex');
-const getBananaIndex = require('../middleware/banana/getBananaIndex');
+const getMonkeyIndex = require('../middleware/monkey/getMonkey');
+const getBananaIndex = require('../middleware/banana/getBanana');
 const checkMonkeyId = require('../middleware/banana/checkMonkeyId');
 
 

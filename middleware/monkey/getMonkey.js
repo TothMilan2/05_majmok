@@ -1,5 +1,20 @@
 module.exports = (objRep) => {
     return (req, res, next) => {
-        res.status(200).json(objRep.monkeys[objRep.globalMonkeyId - 1]);
+    const { monkeys } = objRep;
+    const monkeyIdAsNumber = parseInt(req.params.id, 10);
+    let foundId = -1;
+    for (let i = 0; i < monkeys.length; i++) {
+        if (monkeys[i].id === monkeyIdAsNumber) {
+            foundId = i;
+            break;
+        }
     }
-}
+
+    if (foundId === -1) {
+        return res.status(404).json({
+            Error: `Requested monkeyID not found! ${req.params.id}`
+        });
+    }
+    res.locals.monkeyIndex = foundId
+    return next();
+}}

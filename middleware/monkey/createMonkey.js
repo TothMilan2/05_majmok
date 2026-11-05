@@ -11,6 +11,7 @@ module.exports = (objRep) => {
         }
         objRep.monkeys.push(newMonkey);
         objRep.globalMonkeyId++;
-        return res.status(200).json(newMonkey)
+        res.locals.monkeys = res.status(200).json(newMonkey);
+        return next();
     }
 }

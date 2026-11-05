@@ -5,7 +5,7 @@ module.exports = (objRep) => {
         if(!objRep.monkeys) {
             return res.status(404).json({ error: 'No monkeys found!' });
         }
-         res.locals.objRep = objRep.monkeys;
+         res.locals.monkeys =res.status(200).json(objRep.monkeys);
          return next();
     }
 }
